@@ -15,8 +15,8 @@ export default function AboutPage() {
       <Header />
       <main className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#123B68]">À propos</p>
-          <h1 className="mt-4 text-4xl font-black tracking-tight text-[#0B1730] sm:text-5xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#123C3A]">À propos</p>
+          <h1 className="mt-4 text-4xl font-black tracking-tight text-[#123C3A] sm:text-5xl">
             DigiFind, un partenaire de transformation numérique.
           </h1>
           <p className="mt-6 text-lg leading-8 text-slate-600">
@@ -27,22 +27,22 @@ export default function AboutPage() {
 
         <div className="mt-16 grid gap-8 lg:grid-cols-3">
           <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#00A884]">Mission</p>
-            <h2 className="mt-4 text-2xl font-bold text-[#0B1730]">Mettre la technologie au service des résultats.</h2>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#FF765E]">Mission</p>
+            <h2 className="mt-4 text-2xl font-bold text-[#123C3A]">Mettre la technologie au service des résultats.</h2>
             <p className="mt-4 text-slate-600">
               Nous aidons les organisations à simplifier leurs processus, renforcer leur productivité et exploiter le potentiel des outils numériques avec une approche pragmatique.
             </p>
           </div>
           <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#00A884]">Vision</p>
-            <h2 className="mt-4 text-2xl font-bold text-[#0B1730]">Devenir un acteur de référence en transformation numérique.</h2>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#FF765E]">Vision</p>
+            <h2 className="mt-4 text-2xl font-bold text-[#123C3A]">Devenir un acteur de référence en transformation numérique.</h2>
             <p className="mt-4 text-slate-600">
               Nous aspirons à soutenir des organisations plus compétitives, plus résilientes et mieux préparées aux défis du numérique.
             </p>
           </div>
           <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#00A884]">Philosophie</p>
-            <h2 className="mt-4 text-2xl font-bold text-[#0B1730]">La bonne technologie, au bon coût.</h2>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#FF765E]">Philosophie</p>
+            <h2 className="mt-4 text-2xl font-bold text-[#123C3A]">La bonne technologie, au bon coût.</h2>
             <p className="mt-4 text-slate-600">
               Nous privilégions des solutions utiles, accessibles, évolutives et alignées avec les priorités réelles des organisations.
             </p>
@@ -51,8 +51,8 @@ export default function AboutPage() {
 
         <section className="mt-20 grid gap-12 lg:grid-cols-[1fr_1fr]">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#123B68]">Notre approche</p>
-            <h2 className="mt-4 text-3xl font-bold text-[#0B1730]">Des solutions pensées pour le terrain.</h2>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#123C3A]">Notre approche</p>
+            <h2 className="mt-4 text-3xl font-bold text-[#123C3A]">Des solutions pensées pour le terrain.</h2>
             <p className="mt-5 text-slate-600">
               Nous comprenons les réalités des organisations africaines : contraintes budgétaires, besoin de résultats rapides, nécessité d’outils fiables et évolutifs, et besoin d’accompagnement durable.
             </p>
@@ -60,12 +60,12 @@ export default function AboutPage() {
               C’est pourquoi notre modèle privilégie l’écoute, le diagnostic, la simplicité de mise en œuvre et le transfert de compétences pour renforcer les capacités internes.
             </p>
           </div>
-          <div className="rounded-[2rem] bg-[#0B1730] p-8 text-white">
+          <div className="rounded-[2rem] bg-[#123C3A] p-8 text-white">
             <h3 className="text-2xl font-bold">Nos valeurs</h3>
             <ul className="mt-6 space-y-4">
               {values.map((value) => (
                 <li key={value} className="flex items-start gap-3 text-slate-200">
-                  <span className="mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#00A884] text-xs font-bold text-[#0B1730]">✓</span>
+                  <span className="mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#FF765E] text-xs font-bold text-[#123C3A]">✓</span>
                   <span>{value}</span>
                 </li>
               ))}

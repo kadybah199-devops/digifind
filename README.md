@@ -1,28 +1,40 @@
 # DigiFind
 
-Site vitrine en français pour le cabinet DigiFind, construit avec Next.js, Tailwind CSS et Supabase. Les formulaires de contact, de devis et de rendez-vous enregistrent leurs demandes dans Supabase.
+Site vitrine en français pour DigiFind, construit avec Next.js, Tailwind CSS et TypeScript.
 
-## Démarrage local
+## État du projet
 
-1. Copier `.env.example` vers `.env.local` et compléter les identifiants Supabase.
-2. Dans Supabase, exécuter `supabase/migrations/001_init_schema.sql` dans l’éditeur SQL.
-3. Lancer `npm install`, puis `npm run dev`.
+- Les pages marketing sont intégrées dans l’App Router.
+- Le blog utilise actuellement un jeu d’articles local dans src/lib/blog-content.ts. Il ne lit pas encore les articles depuis une base de données.
+- Les écrans d’administration affichent des données de démonstration.
+- Les formulaires disposent d’une route serveur prévue pour enregistrer les demandes dans Supabase. Ils ont besoin d’un projet Supabase configuré avant de pouvoir enregistrer des données.
+- Ce dépôt cible Supabase (PostgreSQL). Sybase n’est pas configuré.
 
-Variables requises :
+## Développement local
 
-- `NEXT_PUBLIC_SUPABASE_URL` : URL du projet Supabase.
-- `NEXT_PUBLIC_SUPABASE_ANON_KEY` : clé publique (utilisée par les fonctions Supabase côté client).
-- `SUPABASE_SERVICE_ROLE_KEY` : clé privée, utilisée uniquement par l’API serveur. Ne jamais la préfixer par `NEXT_PUBLIC_`.
-- `NEXT_PUBLIC_SITE_URL` : URL publique du site.
-- `ADMIN_EMAIL` et `ADMIN_PASSWORD` : identifiants privés pour `/admin`.
-- `ADMIN_SESSION_SECRET` : secret aléatoire d’au moins 32 caractères pour signer les sessions admin.
+Prérequis : Node.js 22 ou supérieur et npm.
 
-`RESEND_API_KEY` est facultative et réservée à l’ajout futur des notifications par e-mail.
+1. Installer les dépendances avec npm install.
+2. Copier .env.example vers .env.local.
+3. Renseigner les variables nécessaires dans .env.local à partir de ton projet Supabase et de ton compte d’administration.
+4. Lancer npm run dev.
 
-## Déploiement sur Vercel
+Ne publie jamais .env.local ni la clé SUPABASE_SERVICE_ROLE_KEY. Cette clé doit rester côté serveur.
 
-Importer le dépôt GitHub dans Vercel avec le preset Next.js, ajouter les variables d’environnement ci-dessus dans les paramètres du projet, puis lancer le déploiement. Remplacer les valeurs d’exemple et générer un secret admin propre à la production. Le projet est prêt pour le déploiement Vercel et n’a pas besoin d’un fichier `vercel.json` personnalisé.
+## Base de données
 
-## Dépôt et services
+Le schéma initial est décrit dans supabase/migrations/001_init_schema.sql. Il doit être appliqué et contrôlé sur le projet Supabase cible. Les tables et politiques réelles n’ont pas été vérifiées sur une base connectée.
 
-Le répertoire de travail doit être relié à un dépôt GitHub pour permettre les déploiements automatiques et les previews Vercel. La base de données est fournie par Supabase (PostgreSQL) ; Sybase n’est pas configuré dans ce projet.
+Les politiques RLS de cette migration doivent être revues avant d’utiliser la base avec des données réelles. L’interface d’administration actuelle n’utilise pas Supabase Auth ; ses écrans restent des aperçus avec données fictives.
+
+## Déploiement Vercel
+
+Le dépôt peut être relié au projet Vercel digifind. Configurer les variables d’environnement dans les environnements Vercel concernés avant d’activer les formulaires. Le projet Git connecté permet les déploiements lors des mises à jour de la branche de production.
+
+Variables prévues : NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY, SUPABASE_SERVICE_ROLE_KEY, ADMIN_EMAIL, ADMIN_PASSWORD et ADMIN_SESSION_SECRET. NEXT_PUBLIC_SITE_URL documente l’URL publique. RESEND_API_KEY est réservée à une future intégration e-mail.
+
+## Commandes
+
+- npm run dev — serveur local
+- npm run lint — vérification ESLint
+- npm run build — build de production

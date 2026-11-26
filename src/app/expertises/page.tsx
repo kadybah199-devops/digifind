@@ -34,8 +34,8 @@ export default function ExpertisesPage() {
       <Header />
       <main className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#123B68]">Expertises</p>
-          <h1 className="mt-4 text-4xl font-black tracking-tight text-[#0B1730] sm:text-5xl">Des expertises pensées pour la performance.</h1>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#123C3A]">Expertises</p>
+          <h1 className="mt-4 text-4xl font-black tracking-tight text-[#123C3A] sm:text-5xl">Des expertises pensées pour la performance.</h1>
           <p className="mt-6 text-lg leading-8 text-slate-600">
             DigiFind intervient sur les enjeux de transformation numérique qui touchent directement la productivité, la qualité de service et la durabilité des organisations.
           </p>
@@ -44,12 +44,12 @@ export default function ExpertisesPage() {
         <div className="mt-16 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {expertiseItems.map((item) => (
             <article key={item.title} className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#EAF7F3] text-xl font-bold text-[#00A884]">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#FFF0EB] text-xl font-bold text-[#FF765E]">
                 ✓
               </div>
-              <h2 className="text-2xl font-bold text-[#0B1730]">{item.title}</h2>
+              <h2 className="text-2xl font-bold text-[#123C3A]">{item.title}</h2>
               <p className="mt-4 text-slate-600">{item.description}</p>
-              <a href="/devis" className="mt-6 inline-flex text-sm font-semibold text-[#123B68] hover:text-[#0B1730]">
+              <a href="/devis" className="mt-6 inline-flex text-sm font-semibold text-[#123C3A] hover:text-[#123C3A]">
                 Demander un devis →
               </a>
             </article>

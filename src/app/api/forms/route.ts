@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
 import { z } from "zod";
+import { getSupabaseAdminClient } from "@/lib/supabase-admin";
 
 const common = {
   name: z.string().trim().min(2).max(120),
@@ -14,7 +14,7 @@ const common = {
 const submissionSchema = z.discriminatedUnion("kind", [
   z.object({ kind: z.literal("contact"), ...common, subject: z.string().trim().min(2).max(160) }),
   z.object({ kind: z.literal("quote"), ...common, sector: z.string().trim().max(120).optional().default(""), budget: z.string().regex(/^$|^\d+(\.\d{1,2})?$/).optional().default(""), deadline: z.string().max(120).optional().default("") }),
-  z.object({ kind: z.literal("appointment"), ...common, date: z.iso.date().refine((date) => date >= new Date().toISOString().slice(0, 10)), time: z.string().regex(/^\d{2}:\d{2}$/), mode: z.enum(["presentiel", "visio"]) }),
+  z.object({ kind: z.literal("appointment"), ...common, subject: z.string().trim().min(2).max(160), date: z.iso.date().refine((date) => date >= new Date().toISOString().slice(0, 10)), time: z.string().regex(/^\d{2}:\d{2}$/), mode: z.enum(["presentiel", "visio"]) }),
 ]);
 
 export async function POST(request: Request) {
@@ -30,13 +30,13 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Vérifiez les champs du formulaire." }, { status: 400 });
   }
 
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!url || !key) {
+  let db: ReturnType<typeof getSupabaseAdminClient>;
+  try {
+    db = getSupabaseAdminClient();
+  } catch {
     return NextResponse.json({ error: "Le formulaire est momentanément indisponible." }, { status: 503 });
   }
 
-  const db = createClient(url, key, { auth: { persistSession: false, autoRefreshToken: false } });
   const values = parsed.data;
   let result;
 
@@ -66,11 +66,11 @@ export async function POST(request: Request) {
       company_name: values.company || null,
       email: values.email,
       phone: values.phone,
-      subject: values.service,
+      subject: values.subject,
       preferred_date: values.date,
       preferred_time: values.time,
       meeting_mode: values.mode,
-      message: values.message || null,
+      message: values.service + "\n\n" + values.message,
     });
   }
 

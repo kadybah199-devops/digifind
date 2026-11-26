@@ -13,7 +13,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DigiFind | Transformation numérique",
+  title: {
+    default: "DigiFind | Transformation numérique",
+    template: "%s | DigiFind",
+  },
   description:
     "DigiFind accompagne les entreprises et organisations dans leur transformation numérique grâce à des solutions adaptées à leurs besoins et à leurs objectifs.",
 };
@@ -21,7 +24,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-full bg-white text-[#0B1730]">{children}</body>
+      <body className="min-h-full bg-white text-[#123C3A]">{children}</body>
     </html>
   );
 }

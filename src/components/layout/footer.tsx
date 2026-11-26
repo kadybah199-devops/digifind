@@ -2,11 +2,11 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="bg-[#0B1730] text-slate-200">
+    <footer className="bg-[#123C3A] text-slate-200">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-4 lg:px-8">
         <div className="space-y-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#123B68] text-sm font-bold text-white">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#123C3A] text-sm font-bold text-white">
               D
             </div>
             <div>

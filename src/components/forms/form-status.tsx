@@ -35,7 +35,7 @@ export function FormStatus({ kind, children, className }: Props) {
   return (
     <form onSubmit={submit} className={className}>
       {children}
-      <button disabled={state === "sending"} type="submit" className="mt-6 inline-flex rounded-full bg-[#00A884] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#008f70] disabled:cursor-wait disabled:opacity-60">
+      <button disabled={state === "sending"} type="submit" className="mt-6 inline-flex rounded-full bg-[#FF765E] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#e6654f] disabled:cursor-wait disabled:opacity-60">
         {state === "sending" ? "Envoi en cours…" : kind === "contact" ? "Envoyer le message" : kind === "quote" ? "Envoyer la demande" : "Demander un rendez-vous"}
       </button>
       {message && <p role="status" aria-live="polite" className={`mt-4 text-sm ${state === "error" ? "text-red-700" : "text-emerald-800"}`}>{message}</p>}

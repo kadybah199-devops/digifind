@@ -189,20 +189,6 @@ for insert with check (true);
 create policy "Public can insert quote requests" on public.quote_requests
 for insert with check (true);
 
-create policy "Authenticated admins can manage profiles" on public.profiles
-for all using (auth.role() = 'authenticated') with check (auth.role() = 'authenticated');
-
-create policy "Authenticated admins can manage blog data" on public.blog_posts
-for all using (auth.role() = 'authenticated') with check (auth.role() = 'authenticated');
-
-create policy "Authenticated admins can manage quote requests" on public.quote_requests
-for all using (auth.role() = 'authenticated') with check (auth.role() = 'authenticated');
-
-create policy "Authenticated admins can manage appointments" on public.appointments
-for all using (auth.role() = 'authenticated') with check (auth.role() = 'authenticated');
-
-create policy "Authenticated admins can manage site settings" on public.site_settings
-for all using (auth.role() = 'authenticated') with check (auth.role() = 'authenticated');
-
-create policy "Authenticated admins can manage activity logs" on public.activity_logs
-for all using (auth.role() = 'authenticated') with check (auth.role() = 'authenticated');
+-- Private admin operations must go through authenticated server routes using
+-- the server-only service role key. Do not grant table-wide access to every
+-- Supabase-authenticated account.

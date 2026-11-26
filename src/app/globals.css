@@ -2,13 +2,13 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #0B1730;
-  --primary: #123B68;
-  --primary-soft: #EAF3FF;
-  --secondary: #00A884;
-  --secondary-soft: #EAF7F3;
-  --muted: #F3F5F8;
-  --text-soft: #475569;
+  --foreground: #123C3A;
+  --primary: #123C3A;
+  --primary-soft: #F3EBDD;
+  --secondary: #FF765E;
+  --secondary-soft: #FFF0EB;
+  --muted: #F3EBDD;
+  --text-soft: #566865;
 }
 
 @theme inline {
@@ -25,7 +25,7 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   line-height: 1.6;
 }
 
@@ -43,12 +43,10 @@ a {
 }
 
 ::selection {
-  background: rgba(0, 168, 132, 0.2);
+  background: rgba(255, 118, 94, 0.24);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:focus-visible {
+  outline: 3px solid #FF765E;
+  outline-offset: 3px;
 }

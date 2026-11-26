@@ -1,8 +1,8 @@
 export const dashboardKpis = [
-  { label: "Demandes de devis", value: "24", accent: "bg-[#123B68]" },
-  { label: "Rendez-vous", value: "12", accent: "bg-[#00A884]" },
-  { label: "Messages reçus", value: "08", accent: "bg-[#0B1730]" },
-  { label: "Articles publiés", value: "16", accent: "bg-[#123B68]" },
+  { label: "Demandes de devis", value: "24", accent: "bg-[#123C3A]" },
+  { label: "Rendez-vous", value: "12", accent: "bg-[#FF765E]" },
+  { label: "Messages reçus", value: "08", accent: "bg-[#123C3A]" },
+  { label: "Articles publiés", value: "16", accent: "bg-[#123C3A]" },
 ];
 
 export const recentAppointments = [
